@@ -12,12 +12,12 @@ describe("Operaciones CRUD de cafes", () => {
     });
 
     it("debe devolver un código 404 al intentar eliminar un café con un id que no existe", async () => {
-        const response = await request(app).delete("/cafes/999"); // Supongamos que el ID 999 no existe
+        const response = await request(app).delete("/cafes/999"); 
         expect(response.status).toBe(404);
     });
 
     it("debe agregar un nuevo café y devolver un código 201 al hacer una solicitud POST a /cafes", async () => {
-        const newCafe = { id: 5, nombre: "Latte" }; // Puedes ajustar los datos según lo necesites
+        const newCafe = { id: 5, nombre: "Latte" }; 
         const response = await request(app).post("/cafes").send(newCafe);
         expect(response.status).toBe(201);
         expect(Array.isArray(response.body)).toBe(true);
